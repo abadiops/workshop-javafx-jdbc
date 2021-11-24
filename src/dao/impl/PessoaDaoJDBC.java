@@ -194,8 +194,8 @@ public class PessoaDaoJDBC implements PessoaDao {
 
 		try {
 			st = conn.prepareStatement(
-					"SELECT pessoa.*,department.Name as DepName " + "FROM pessoa INNER JOIN department "
-							+ "ON pessoa.DepartamentoId = department.Id " + "ORDER BY Id");
+					"SELECT pessoa.*,departamento.departamento as DepName " + "FROM pessoa INNER JOIN departamento "
+							+ "ON pessoa.DepartmentId = departamento.Id " + "ORDER BY Id");
 
 			rs = st.executeQuery();
 
@@ -204,11 +204,11 @@ public class PessoaDaoJDBC implements PessoaDao {
 
 			while (rs.next()) {
 
-				Departamento dep = map.get(rs.getInt("DepartamentoId"));
+				Departamento dep = map.get(rs.getInt("DepartmentId"));
 
 				if (dep == null) {
 					dep = instantiateDepartamento(rs);
-					map.put(rs.getInt("DepartamentoId"), dep);
+					map.put(rs.getInt("DepartmentId"), dep);
 				}
 
 				Pessoa obj = instantiatePessoa(rs, dep);
@@ -241,7 +241,7 @@ public class PessoaDaoJDBC implements PessoaDao {
 	private Departamento instantiateDepartamento(ResultSet rs) throws SQLException {
 		
 		Departamento dep = new Departamento();
-		dep.setId(rs.getInt("DepartamentoId"));
+		dep.setId(rs.getInt("DepartmentId"));
 		dep.setDepartamento(rs.getString("DepName"));
 		
 		return dep;

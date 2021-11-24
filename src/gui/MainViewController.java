@@ -16,6 +16,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import services.DepartamentoService;
+import services.PessoaService;
 import util.Alerts;
 
 public class MainViewController implements Initializable {
@@ -31,7 +32,12 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void onMenuItemPessoaAction() {
-		System.out.println("onMenuItemPessoaAction");
+		
+		loadView("/gui/PessoaList.fxml", (PessoaListController controller) -> {
+			controller.setPessoaService(new PessoaService());
+			controller.atualizarTableView();
+		});
+
 	}
 
 	@FXML

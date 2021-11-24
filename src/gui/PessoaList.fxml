@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="345.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PessoaListController">
+   <children>
+      <Label contentDisplay="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="Cadastro de Pessoa" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <ToolBar prefHeight="43.0" prefWidth="354.0">
+        <items>
+          <Button fx:id="btCadastroPessoa" mnemonicParsing="false" onAction="#onBtCadastroPessoaAction" text="Cadastro" />
+        </items>
+      </ToolBar>
+      <TableView fx:id="tableViewPessoa" prefHeight="205.0" prefWidth="104.0">
+        <columns>
+          <TableColumn fx:id="tableColumnId" prefWidth="74.0" text="Código " />
+          <TableColumn fx:id="tableColumnPessoa" prefWidth="267.0" text="Pessoa" />
+            <TableColumn fx:id="tableColumnEDIT" maxWidth="146.0" minWidth="0.0" prefWidth="45.0" />
+            <TableColumn fx:id="tableColumnREMOVE" maxWidth="157.0" prefWidth="57.0" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>
